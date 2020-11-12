@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --colorFondoNav: #d9d9d9;
+  --colorBoton: #1890ff;
+  --colorBotonHover: #40a9ff;
+  --colorBotonCancelarOpcional: #ff9800;
+}
+
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+  font-family: "Roboto";
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto/Roboto-Regular.ttf");
+}
