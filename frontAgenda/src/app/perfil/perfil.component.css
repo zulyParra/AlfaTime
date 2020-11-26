@@ -1,0 +1,48 @@
+.container {
+  margin: 100px;
+}
+
+.Cusuario {
+  display: flex;
+  flex-direction: row;
+  width: 90px;
+  height: 300px;
+  justify-content: space-between;
+  border: none;
+  background-color: #f4f5f7;
+}
+
+h1,
+h5,
+.some {
+  color: black;
+}
+
+label {
+  color: #8c8c8c;
+}
+
+.usuarios {
+  width: 400px;
+}
+
+.bt {
+  width: 250px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 200px 10px;
+}
+
+.some {
+  width: 97px;
+  height: 40px;
+  background-color: #1890ff;
+  border: none;
+  border-radius: 7px;
+}
+
+.perfil {
+  text-align: center;
+  width: 250px;
+}

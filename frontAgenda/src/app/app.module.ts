@@ -7,6 +7,9 @@ import { CabeceraComponent } from './cabecera/cabecera.component';
 import { SliderComponent } from './slider/slider.component';
 import { MarketingComponent } from './marketing/marketing.component';
 import { PiePaginaComponent } from './pie-pagina/pie-pagina.component';
+import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
+import { InvitacionComponent } from './invitacion/invitacion.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { PiePaginaComponent } from './pie-pagina/pie-pagina.component';
     CabeceraComponent,
     SliderComponent,
     MarketingComponent,
-    PiePaginaComponent
+    PiePaginaComponent,
+    MenuLateralComponent,
+    InvitacionComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
