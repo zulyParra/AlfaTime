@@ -1,3 +1,4 @@
+  
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular'; // useful for typechecking
 
@@ -15,8 +16,5 @@ export class CalendarComponent implements OnInit {
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth'
   };
-<<<<<<< HEAD
-=======
 
->>>>>>> giancarlo
 }
