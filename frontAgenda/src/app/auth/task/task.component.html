@@ -1,0 +1,36 @@
+<div class="mpx mpy d-flex flex-row">
+  <div class="input-group">
+
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">
+        <mat-icon class="icono">library_add</mat-icon>
+      </button>
+      <span class="input-group-text" id="addon-wrapping"><mat-icon>search</mat-icon></span>
+    </div>
+    <input type="text" class="form-control imp" placeholder="Tarea" aria-label="Username" aria-describedby="addon-wrapping">
+  </div>
+</div>
+<mat-card class="mpx">
+  <ul class="list-group"#shores>
+    <div *ngFor="let shore of typesOfShores">
+      <li class="list-group-item">
+        <div class="d-flex flex-row justify-content-between">
+          <div>
+            <h3>{{shore}}</h3>
+            <p>Descripción</p>
+          </div>
+          <div class="d-flex flex-column justify-content-between">
+            <div class="form-group form-check d-flex justify-content-end">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            </div>
+            <div>
+              <p>Fecha: 10-12-2020</p>
+            </div>
+          </div>
+        </div>
+                
+      </li>     
+    </div>
+  </ul>
+  
+</mat-card>
