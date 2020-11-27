@@ -28,4 +28,8 @@ esquemaRol.methods.generateJWT = function () {
 const Rol = mongoose.model("rol", esquemaRol);
 module.exports.Rol = Rol;
 //esta linea se usa solo en los que genera un jwt
+<<<<<<< HEAD
 module.exports.esquemaRol = esquemaRol;
+=======
+module.exports.esquemaRol = esquemaRol;
+>>>>>>> giancarlo

@@ -25,4 +25,8 @@ esquemaProyecto.methods.generateJWT = function () {
 const Proyecto = mongoose.model("proyecto", esquemaProyecto);
 module.exports.Proyecto = Proyecto;
 //esta linea se usa solo en los que genera un jwt
+<<<<<<< HEAD
 module.exports.esquemaProyecto = esquemaProyecto;
+=======
+module.exports.esquemaProyecto = esquemaProyecto;
+>>>>>>> giancarlo
