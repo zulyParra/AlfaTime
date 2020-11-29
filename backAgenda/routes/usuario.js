@@ -1,7 +1,11 @@
 //Módulos internos
 const express = require("express");
 const router = express.Router();
-//Módulos creados
+const auth = require("../middleware/auth")
+//Módulos internos
+const { Proyecto } = require("../model/proyecto");
+const { Rol } = require("../model/rol");
+const  { Tarea } = require("../model/tarea")
 const { Usuario } = require("../model/usuario");
 //Ruta
 router.post("/",async (req,res) => {
@@ -21,6 +25,16 @@ router.post("/",async (req,res) => {
     const result = await usuario.save();
     const jwtToken = usuario.generateJWT();
     res.status(200).send({jwtToken});
+})
+router.get("/listaUsuario",auth,async(req,res)=>{
+    const proyecto = await Proyecto.findOne({
+        nombre_proyecto:req.body.nombre_proyecto
+    })
+    if(!proyecto) return res.status(401).send('no hay tal proyecto')
+    const rol = await Rol.find({
+        id_proyecto:proyecto._id
+    })
+    res.status(200).send(rol)
 })
 //Exports
 module.exports = router;

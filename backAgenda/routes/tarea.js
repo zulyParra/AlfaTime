@@ -10,11 +10,15 @@ const  { Tarea } = require("../model/tarea")
 
 router.post('/tarea',auth,async(req,res)=>{
   const usuario = await Usuario.findById(req.usuario._id)
-  console.log(req.body.nombre_proyecto);
+  // console.log(req.body.nombre_proyecto);
   const proyecto = await Proyecto.findOne({
     nombre_proyecto:req.body.nombre_proyecto
   })
   if(!proyecto) return res.status(401).send('no hay proyecto asociado')
+  const oldTarea = await Tarea.findOne({
+    titulo:req.body.titulo
+  }) 
+  if(oldTarea) return res.status(401).send('ya existe esta tarea')
   const tarea = new Tarea({
     titulo:req.body.titulo,
     descripcion:req.body.descripcion,
@@ -36,6 +40,21 @@ router.delete('/delete',auth,async(req,res)=>{
   if(!tarea) res.status(401).send('no existe esa tarea')
   const delet = await Tarea.findByIdAndDelete(tarea._id)
   res.status(200).send('tarea eliminada')
+})
+
+router.get('/listar',auth,async(req,res)=>{
+  const proyecto = await Proyecto.find({
+    nombre_proyecto:req.body.nombre_proyecto
+  })
+  console.log(proyecto[0]._id);
+  if(!proyecto) return res.status(401).send('no hay tal proyecto')
+  const tarea = await Tarea.find({
+    id_proyecto:proyecto[0]._id
+    // id_proyecto:"5fc2cc6bd6809f11d1745e10"
+    // 5fc2cc6bd6809f11d1745e10
+  })
+  if(!tarea) return res.status.send('no hay nada')
+  res.status(200).send(tarea)
 })
 
 
