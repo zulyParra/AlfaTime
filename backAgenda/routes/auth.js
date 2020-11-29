@@ -7,7 +7,7 @@ const { Usuario } = require("../model/usuario");
 //Ruta
 router.post("/", async (req, res) => {
   //Validamos que exista el correo
-  const usuario = await Usuario.findOne({ correo: req.body.correo });
+  const usuario = await Usuario.findOne({ email: req.body.email });
   //Si no existe el correo
   if (!usuario)
     return res.status(400).send("Correo o contraseña no son válidos");

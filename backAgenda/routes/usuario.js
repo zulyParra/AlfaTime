@@ -6,7 +6,7 @@ const { Usuario } = require("../model/usuario");
 //Ruta
 router.post("/",async (req,res) => {
     //revisamos si existe el mismo correo en nuestra db
-    let usuario = await Usuario.findOne({ correo: req.body.correo});
+    let usuario = await Usuario.findOne({ email: req.body.email});
     //si el usuario existe en db
     if(usuario) return res.status(400).send("El usuario ya está registrado");
     //Si el correo no existe
@@ -14,7 +14,7 @@ router.post("/",async (req,res) => {
         nombre: req.body.nombre,
         email: req.body.email,
         pass: req.body.pass,
-        image: rutaImagen,
+        // image: rutaImagen,
         estado: req.body.estado,
     })
 //Guardamos usuario en db y obtenemos el JWT

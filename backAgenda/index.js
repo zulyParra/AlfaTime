@@ -5,13 +5,15 @@ const cors = require('cors')
 const usuario = require("./routes/usuario")
 const auth = require('./routes/auth')
 const proyecto = require("./routes/proyecto")
+const tarea = require("./routes/tarea")
 //app
 const app = express()
 app.use(cors())
 app.use(express.json())
 app.use("/api/usuario/",usuario)
 app.use("/api/auth/",auth)
-app.use("/api/tablero/",proyecto)
+app.use("/api/proyecto/",proyecto)
+app.use("/api/tarea/",tarea)
 
 const port = process.env.PORT || 3000
 app.listen(port,()=>{console.log("ejecutando en puerto: ", port);})

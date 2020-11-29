@@ -30,6 +30,10 @@ import { CalendarComponent } from './auth/calendar/calendar.component';
 import { EditarPerfilComponent } from './auth/editar-perfil/editar-perfil.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { UserListComponent } from './auth/user-list/user-list.component'; 
+import {MatDialogModule} from '@angular/material/dialog';
+import { NewProjectComponent } from './dialog/new-project/new-project.component';
+import { NewTaskComponent } from './dialog/new-task/new-task.component';
+
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -51,7 +55,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     CreateProjectComponent,
     CalendarComponent,
     EditarPerfilComponent,
-    UserListComponent
+    UserListComponent,
+    NewProjectComponent,
+    NewTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +72,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     BrowserAnimationsModule,
     MatFormFieldModule,
     BrowserModule,
-    FullCalendarModule
+    FullCalendarModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

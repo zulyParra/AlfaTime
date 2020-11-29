@@ -7,36 +7,37 @@ const { Proyecto } = require("../model/proyecto");
 const { Usuario } = require("../model/usuario");
 const { Rol } = require("../model/rol");
 //Ruta
-router.post("/crearProyecto",auth,async()=>{
-  const usuario = await Usuario.findById(req.usuario._id)
-  if(!usuario) return res.status(401).send("usuario no existe en DB")
-  const rol = await Rol.find({
-    id_usuario:usuario._id
-  }) 
-  rol.map(async function(v){
-    const proyecto = await Proyecto.findOne({
-      id_proyecto: v.id_proyecto
-    });
-    if(proyecto.nombre_proyecto==req.body.nombre_proyecto){
-      return proyecto
-    }
+router.post("/crearProyecto",auth,async(req,res)=>{
+  const proyecto = await Proyecto.findOne({
+    nombre_proyecto:req.body.nombre_proyecto
   })
-  if(rol.length>0){
-    return res.status(401).send("ya existe el proyecto")
-  }
+  if(proyecto) return res.status(401).send('este proyecto ya existe')
   const proyectos = new Proyecto({
     nombre_proyecto:req.body.nombre_proyecto,
     estado:"activo"
   })
   const roles = new Rol({
-    id_usuario:usuario._id,
+    id_usuario:req.usuario._id,
     id_proyecto: proyectos._id,
     rol:"admin"
   })
-  const result = await proyectos.save()
-  res.status(200).send(result)
-  const result2 = await roles.save()
-  res.status(200).send(result2)  
+  const resultP = await proyectos.save()
+  
+  const resultR = await roles.save()
+  const omg= {resultP,resultR}
+  res.status(200).send(omg)
+  // res.status(200).send(result2)  
+})
+router.delete('/delete',auth, async(req,res)=>{
+  const proyecto = await Proyecto.findOne({
+    nombre_proyecto:req.body.nombre_proyecto
+  })
+  if(!proyecto) return res.status(401).send('no existe tal proyecto')
+  const delet = await Rol.findOneAndDelete({
+    id_proyecto: proyecto._id
+  })
+  const dele = await Proyecto.findByIdAndDelete(proyecto._id)
+  res.status(200).send('proyecto eliminado')
 })
 
 module.exports = router;
