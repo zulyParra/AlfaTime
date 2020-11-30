@@ -13,42 +13,32 @@
           </div>
         </form>
       </li>
-      <li class="list-group-item">
+      <li *ngFor="let pro of proyecto" class="list-group-item">
         <div class="d-flex flex-row justify-content-between">
           <div class="d-flex align-items-center">
-            AlphaTime
+            {{pro.nombre_proyecto}}
           </div>
           <div class="d-flex align-items-center">
-            Estado: Activo
+            Estado: {{pro.estado}}
             <span></span>  
             <div class="example-button-container">
-              <button mat-mini-fab  aria-label="Example icon button with a filter list icon">
+              <button (click)="eliminarProyecto(pro)" mat-mini-fab  aria-label="Example icon button with a filter list icon">
                 <mat-icon>clear</mat-icon>
               </button>
             </div> 
           </div>
         </div>
       </li>
-      <li class="list-group-item">
-        <div class="d-flex flex-row justify-content-between">
-          <div class="d-flex align-items-center">
-            Project x
-          </div>
-          <div class="d-flex align-items-center">
-            Estado: Activo
-            <span></span>  
-            <div class="example-button-container">
-              <button mat-mini-fab  aria-label="Example icon button with a filter list icon">
-                <mat-icon>clear</mat-icon>
-              </button>
-            </div>     
-                
-          </div>
-        </div>
-      </li>
     </ul>
     <mat-card-actions>
-      <button mat-button (click)="openDialog()">Crear nuevo proyecto</button>
+      <form class="mx-2"role="form" (ngSubmit)="crearProyecto()" ngNativeValidate>
+        <div class="form-group">
+          <label for="exampleInputEmail1">¿Nuevo proyecto?</label>
+          <input [(ngModel)]="newProyect.nombre_proyecto" [ngModelOptions]="{ standalone: true }"
+          type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <button type="submit" class="btn btn-primary">Crear nuevo proyecto</button>
+      </form>
     </mat-card-actions>
   </mat-card>
 </div>

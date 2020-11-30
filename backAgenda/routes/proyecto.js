@@ -28,16 +28,15 @@ router.post("/crearProyecto",auth,async(req,res)=>{
   res.status(200).send(omg)
   // res.status(200).send(result2)  
 })
-router.delete('/delete',auth, async(req,res)=>{
-  const proyecto = await Proyecto.findOne({
-    nombre_proyecto:req.body.nombre_proyecto
-  })
+router.delete('/:_id',auth, async(req,res)=>{
+  console.log(req.params._id);
+  const proyecto = await Proyecto.findById(req.params._id)
   if(!proyecto) return res.status(401).send('no existe tal proyecto')
   const delet = await Rol.findOneAndDelete({
     id_proyecto: proyecto._id
   })
   const dele = await Proyecto.findByIdAndDelete(proyecto._id)
-  res.status(200).send('proyecto eliminado')
+  res.status(200).send({message:"proyecto eliminada"})
 })
 router.get('/get',auth, async(req,res)=>{
   const usuario = await Usuario.findById(req.usuario._id)
@@ -45,7 +44,7 @@ router.get('/get',auth, async(req,res)=>{
     id_usuario:usuario._id
   })
   rol = rol.map(v => v.id_proyecto)
-  console.log(rol);
+  // console.log(rol);
   const proyecto = await Proyecto.find({
     _id:{$in:rol}
   })

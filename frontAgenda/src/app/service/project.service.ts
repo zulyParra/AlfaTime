@@ -6,6 +6,19 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class ProjectService {
-  private
-  constructor() { }
+  private projectUrl = 'http://localhost:3000/api/proyecto'
+  
+  constructor(private http: HttpClient, private router: Router) { }
+  obtenerProyectos(){
+    const omg = `${this.projectUrl}/get`
+    return this.http.get<any>(omg)  
+  }
+  crearProyectos(body){
+    const omg = `${this.projectUrl}/crearProyecto`
+    return this.http.post<any>(omg,body)
+  }
+  eliminarProyecto(bodys){
+    const omg = `${this.projectUrl}/${bodys}`
+    return this.http.delete<any>(omg)
+  }
 }

@@ -41,6 +41,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { AuthService } from './service/auth.service'
 import {TokenInterceptorService} from './service/token-interceptor.service'
+import { ProjectService } from './service/project.service'
 //guard
 import { AuthGuard } from './guard/auth.guard'
 
@@ -91,6 +92,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   ],
   providers: [
     AuthService, AuthGuard,
+    ProjectService,
     // TableroService,
   {
     provide:HTTP_INTERCEPTORS,
