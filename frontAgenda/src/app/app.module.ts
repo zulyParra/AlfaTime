@@ -33,7 +33,16 @@ import { UserListComponent } from './auth/user-list/user-list.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NewProjectComponent } from './dialog/new-project/new-project.component';
 import { NewTaskComponent } from './dialog/new-task/new-task.component';
-
+import { LogInComponent } from './user/log-in/log-in.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
+//angular
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+//service
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
+import { AuthService } from './service/auth.service'
+import {TokenInterceptorService} from './service/token-interceptor.service'
+//guard
+import { AuthGuard } from './guard/auth.guard'
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -57,10 +66,13 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     EditarPerfilComponent,
     UserListComponent,
     NewProjectComponent,
-    NewTaskComponent
+    NewTaskComponent,
+    LogInComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule, 
     AppRoutingModule,
     MatSidenavModule,
     MatButtonModule,
@@ -73,9 +85,19 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatFormFieldModule,
     BrowserModule,
     FullCalendarModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService, AuthGuard,
+    // TableroService,
+  {
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi: true
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

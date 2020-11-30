@@ -8,11 +8,21 @@ import { CreateProjectComponent } from './auth/create-project/create-project.com
 import { ToolbarComponent } from './comp/toolbar/toolbar.component'
 import { UserListComponent } from './auth/user-list/user-list.component'
 import { CalendarComponent } from './auth/calendar/calendar.component'
+import { LogInComponent } from './user/log-in/log-in.component'
+import { SignInComponent } from './user/sign-in/sign-in.component'
 const routes: Routes = [
   {
     path:'',
     component:HomeComponent,
     pathMatch:'full'
+  },
+  {
+    path:'login',
+    component:LogInComponent
+  },
+  {
+    path:'signin',
+    component:SignInComponent
   },
   {
     path:'auth',

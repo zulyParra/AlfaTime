@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent implements OnInit {
-  nav="auth/auth"
+  nav="login"
+  navv="signin"
   constructor() { }
 
   ngOnInit(): void {

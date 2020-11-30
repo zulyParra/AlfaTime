@@ -39,5 +39,18 @@ router.delete('/delete',auth, async(req,res)=>{
   const dele = await Proyecto.findByIdAndDelete(proyecto._id)
   res.status(200).send('proyecto eliminado')
 })
+router.get('/get',auth, async(req,res)=>{
+  const usuario = await Usuario.findById(req.usuario._id)
+  let rol = await Rol.find({
+    id_usuario:usuario._id
+  })
+  rol = rol.map(v => v.id_proyecto)
+  console.log(rol);
+  const proyecto = await Proyecto.find({
+    _id:{$in:rol}
+  })
+  // console.log(proyecto);
+  res.status(200).send(proyecto)
+})
 
 module.exports = router;
