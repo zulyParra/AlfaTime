@@ -13,9 +13,7 @@ router.post("/invitar",auth, async(req,res)=>{
     nombre:req.body.nombre
   })
   if(!usuario) return res.status(401).send('no hay usuario')
-  const proyecto = await Proyecto.findOne({
-    nombre_proyecto:req.body.nombre_proyecto
-  })
+  const proyecto = await Proyecto.findById(req.body._id)
   if(!proyecto) return res.status(401).send('no existe tal proyecto')
   let rol = await Rol.findOne({
     id_usuario:usuario._id,

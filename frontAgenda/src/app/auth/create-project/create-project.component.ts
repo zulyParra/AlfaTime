@@ -56,4 +56,9 @@ export class CreateProjectComponent implements OnInit {
       }
     )
   }
+  cambiarRuta(proyecto){
+    // console.log("object",proyecto);
+    localStorage.setItem("proyecto",proyecto)
+    this.router.navigate(['auth/userList']);     
+  }
 }

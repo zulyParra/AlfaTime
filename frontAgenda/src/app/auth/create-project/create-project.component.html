@@ -15,7 +15,7 @@
       </li>
       <li *ngFor="let pro of proyecto" class="list-group-item">
         <div class="d-flex flex-row justify-content-between">
-          <div class="d-flex align-items-center">
+          <div (click)="cambiarRuta(pro._id)"  class="d-flex align-items-center">
             {{pro.nombre_proyecto}}
           </div>
           <div class="d-flex align-items-center">

@@ -12,29 +12,13 @@
           </div>
         </form>
       </li>
-      <li class="list-group-item">
+      <li *ngFor="let user of usuario; index as i" class="list-group-item">
         <div class="d-flex flex-row justify-content-between">
-          <div class="d-flex align-items-center">
-            Giancarlo Zapata
+          <div (click)="cambiarRuta()" class="d-flex align-items-center">
+            {{user.nombre}}
           </div>
           <div class="d-flex align-items-center">
-            Rol: Admin
-            <span></span>  
-            <div class="example-button-container">
-              <button mat-mini-fab  aria-label="Example icon button with a filter list icon">
-                <mat-icon>clear</mat-icon>
-              </button>
-            </div> 
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="d-flex flex-row justify-content-between">
-          <div class="d-flex align-items-center">
-            Zuly Parra
-          </div>
-          <div class="d-flex align-items-center">
-            Rol: Interesado
+            Rol: {{roles[i].rol}}
             <span></span>  
             <div class="example-button-container">
               <button mat-mini-fab  aria-label="Example icon button with a filter list icon">
@@ -47,7 +31,14 @@
       </li>
     </ul>
     <mat-card-actions>
-      <button mat-button>Invitar Usuario</button>
+      <form class="mx-2"role="form" (ngSubmit)="invitarUsuario()" ngNativeValidate>
+        <div class="form-group">
+          <label for="exampleInputEmail1">¿Nuevo interesado?</label>
+          <input [(ngModel)]="nombreUsuario" [ngModelOptions]="{ standalone: true }"
+          type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <button type="submit" class="btn btn-primary">Invitar a un interesado</button>
+      </form>
     </mat-card-actions>
   </mat-card>
 </div>

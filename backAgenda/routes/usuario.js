@@ -28,15 +28,28 @@ router.post("/",async (req,res) => {
     const jwtToken = usuario.generateJWT();
     res.status(200).send({jwtToken});
 })
-router.get("/listaUsuario",auth,async(req,res)=>{
-    const proyecto = await Proyecto.findOne({
-        nombre_proyecto:req.body.nombre_proyecto
-    })
+router.get("/listaUsuario/:_id",auth,async(req,res)=>{
+    // console.log(req.params);
+    const proyecto = await Proyecto.findById(req.params._id)
     if(!proyecto) return res.status(401).send('no hay tal proyecto')
-    const rol = await Rol.find({
+    let rol = await Rol.find({
         id_proyecto:proyecto._id
     })
-    res.status(200).send(rol)
+    const omg = rol.map(v => {
+        let obj = {}
+        obj['usuario']=v.id_usuario
+        obj['rol']=v.rol
+        return obj
+    })
+    rol = rol.map(v => v.id_usuario )
+    const usuarios = await Usuario.find({
+        _id:{$in:rol}
+    })
+    const resultado = {
+        omg,
+        usuarios
+    }
+    res.status(200).send(resultado)
 })
 //Exports
 module.exports = router;
