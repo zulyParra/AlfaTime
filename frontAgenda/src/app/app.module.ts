@@ -16,6 +16,9 @@ import { FullCalendarModule } from '@fullcalendar/angular'; // the main connecto
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin
 //componentes
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+// import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import {MatSidenavModule} from '@angular/material/sidenav'; 
 import {MatButtonModule} from '@angular/material/button';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet'; 
@@ -43,7 +46,8 @@ import { AuthService } from './service/auth.service'
 import {TokenInterceptorService} from './service/token-interceptor.service'
 import { ProjectService } from './service/project.service'
 //guard
-import { AuthGuard } from './guard/auth.guard'
+import { AuthGuard } from './guard/auth.guard';
+import { TaskFormComponent } from './auth/task-form/task-form.component'
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -69,7 +73,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     NewProjectComponent,
     NewTaskComponent,
     LogInComponent,
-    SignInComponent
+    SignInComponent,
+    TaskFormComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +93,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FullCalendarModule,
     MatDialogModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     AuthService, AuthGuard,

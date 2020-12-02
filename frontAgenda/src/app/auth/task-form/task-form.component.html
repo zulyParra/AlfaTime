@@ -1,0 +1,53 @@
+<div class="back">
+  <div class="d-flex justify-content-center">
+    <div class="card" style="width: 70vh; margin-top: 5vh; height: 80vh;">
+      <div class="card-header">
+        <div class="d-flex flex-row align-items-cente">
+          <div>
+            <img src="../../../assets/img/logo.svg" alt="">
+          </div>
+          <div>
+            <h2>
+              Nueva Tarea
+            </h2>
+          </div>        
+        </div>
+      </div>  
+      <div class="format container" style="margin-top: 1vh;">
+        <form role="form" (ngSubmit)="crearTarea()" ngNativeValidate>
+          <div class="form-group">
+            <label for="exampleInputEmail1">titulo</label>
+            <input [(ngModel)]="task.titulo" [ngModelOptions]="{ standalone: true }"
+            type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Descripcion</label>
+            <textarea [(ngModel)]="task.descripcion" [ngModelOptions]="{ standalone: true }"
+             class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Usuario invitado</label>
+            <!--[(ngModel)]="" [ngModelOptions]="{ standalone: true }" (ngSubmit)="autenticar()"-->
+            <input [(ngModel)]="task.id_usuario_invitado" [ngModelOptions]="{ standalone: true }"
+            type="text" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="form-group">
+            <div>
+              <label for="birthday">Inicio:</label>
+              <input [(ngModel)]="task.fecha_inicio" [ngModelOptions]="{ standalone: true }"
+              type="date" id="inicio" name="inicio">
+            </div>
+            <div>
+              <label for="birthday">Final:</label>
+              <input [(ngModel)]="task.fecha_fin" [ngModelOptions]="{ standalone: true }"
+              type="date" id="final" name="final">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Ingresar</button>
+          <span></span>
+          <button class="btn btn-primary" style="margin-left: 10px;">Regresar</button>
+        </form>
+      </div>
+    </div>
+  </div>  
+</div>

@@ -12,24 +12,26 @@
 </div>
 <mat-card class="mpx">
   <ul class="list-group"#shores>
-    <div *ngFor="let shore of typesOfShores">
-      <li class="list-group-item">
+    <div> <!--*ngFor="let shore of typesOfShores"-->
+      <li *ngFor="let tarea of tareas" class="list-group-item">
         <div class="d-flex flex-row justify-content-between">
           <div>
-            <h3>{{shore}}</h3>
-            <p>Descripción</p>
+            <h3>{{tarea.titulo}}</h3>
+            <h5>Descripción:</h5>
+            <p>{{tarea.descripcion}}</p>
+            <p>Responsable: {{tarea.id_usuario_invitado}}</p>
           </div>
           <div class="d-flex flex-column justify-content-between">
             <div class="form-group form-check d-flex justify-content-end">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
             </div>
             <div>
-              <p>Fecha: 10-12-2020</p>
+              <p>Fecha inicio: {{tarea.fecha_inicio[0]}}</p>
+              <p>Fecha final: {{tarea.fecha_fin[0]}}</p>
             </div>
           </div>
-        </div>
-                
-      </li>     
+        </div>         
+      </li>   
     </div>
   </ul>
   

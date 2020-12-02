@@ -21,7 +21,7 @@ export class CreateProjectComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerProyectos()
   }
-
+ 
   obtenerProyectos(){
     this.project.obtenerProyectos().subscribe(
       (res)=>{        

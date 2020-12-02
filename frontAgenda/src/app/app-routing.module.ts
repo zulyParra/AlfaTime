@@ -10,6 +10,7 @@ import { UserListComponent } from './auth/user-list/user-list.component'
 import { CalendarComponent } from './auth/calendar/calendar.component'
 import { LogInComponent } from './user/log-in/log-in.component'
 import { SignInComponent } from './user/sign-in/sign-in.component'
+import { TaskFormComponent } from './auth/task-form/task-form.component'
 const routes: Routes = [
   {
     path:'',
@@ -47,6 +48,10 @@ const routes: Routes = [
       {
         path:'calendar',
         component:CalendarComponent
+      },
+      {
+        path:'newtask',
+        component:TaskFormComponent
       }
     ]
   }
