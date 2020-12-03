@@ -26,6 +26,18 @@ export class UserListComponent implements OnInit {
       (res)=>{
         this.usuario = res.usuarios
         this.roles=res.omg
+        for(let i=0;i<res.omg.length;i++){ 
+          for(let j=0;j<res.usuarios.length;j++){
+            if(res.omg[i].usuario==res.usuarios[j]._id){
+              console.log(res.usuarios[j].nombre,res.omg[i].rol);
+              this.usuario[j]={
+                ...res.usuarios[j],
+                rol:res.omg[i].rol
+              }              
+            }
+          }        
+        }
+        console.log("object",this.usuario);
         console.log(res)        
       },
       (err)=>{
