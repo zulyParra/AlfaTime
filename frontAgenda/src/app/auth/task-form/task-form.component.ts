@@ -25,7 +25,7 @@ export class TaskFormComponent implements OnInit {
   crearTarea(){    
     this.task.nombre_proyecto=localStorage.getItem('proyecto')
     console.log('task',this.task);
-    this.taskS.pedirTarea(this.task).subscribe(
+    this.taskS.crearTarea(this.task).subscribe(
       (res)=>{
         console.log('res',res);
         this.router.navigate(['auth/task']); 

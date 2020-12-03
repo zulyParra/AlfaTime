@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 export class TaskService {
   private taskUrl = 'http://localhost:3000/api/tarea'
   constructor(private http: HttpClient, private router: Router) { }
-  pedirTarea(body){
+  crearTarea(body){
     const omg = `${this.taskUrl}/tarea`
     return this.http.post<any>(omg,body)
   }

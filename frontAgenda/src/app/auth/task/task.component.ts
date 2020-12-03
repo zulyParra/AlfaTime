@@ -27,7 +27,6 @@ export class TaskComponent implements OnInit {
         this.tareas = this.tareas.map(v=>{
           v.fecha_fin=v.fecha_fin.split("T")
           v.fecha_inicio=v.fecha_inicio.split("T")
-          console.log("1");
           return v
         })
       }, 
