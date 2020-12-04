@@ -7,21 +7,15 @@ const esquemaUsuario = new mongoose.Schema({
   nombre: {
     type: String,
   },
-  email: {
+  correo: {
     type: String,
   },
   pass: {
     type: String,
   },
-  image: {
-    type: String,
-  },
   fechaRegistro: {
     type: Date,
     default: Date.now,
-  },
-  estado:{
-    type:String,
   },
 });
 //Generamos JWT

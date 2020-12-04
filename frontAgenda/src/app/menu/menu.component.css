@@ -1,0 +1,13 @@
+.spacer {
+  flex: 1 1 auto;
+}
+.spacerIcon {
+  flex: 0.1 0.1 auto;
+}
+a {
+  text-decoration: none;
+  color: #2196f3;
+}
+.menu {
+  background-color: #f4f5f7;
+}

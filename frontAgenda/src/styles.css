@@ -6,15 +6,11 @@
   padding: 0;
   box-sizing: border-box;
   --colorFondoNav: #d9d9d9;
-  --colorBoton: #1890ff;
-  --colorBotonHover: #40a9ff;
   --colorBotonCancelarOpcional: #ff9800;
 }
 
 body {
-  
   padding-bottom: 3rem;
-  color: #5a5a5a;
   font-family: "Roboto";
 }
 

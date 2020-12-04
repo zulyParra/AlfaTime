@@ -1,0 +1,46 @@
+<mat-toolbar color="primary" class="menu">
+<img src="../../assets/img/logo.svg" alt="Logo"/>
+<img src="../../assets/img/logo-letra.svg" alt="Logo"/>
+  <!-- <mat-icon aria-hidden="false" aria-label="event">event</mat-icon> -->
+  <ul>
+    <a mat-button routerLink="home">Inicio</a>
+  </ul>
+  <span class="spacerIcon"></span>
+  <!-- <mat-icon aria-hidden="false" aria-label="fact_check">fact_check</mat-icon> -->
+  <ul>
+    <a mat-button routerLink="nosotros">Nosotros</a>
+  </ul>
+  <span class="spacer"></span>
+  <ul>
+    <a mat-stroked-button routerLink="login">Login</a>
+  </ul>
+  <ul>
+    <a mat-flat-button color="primary" routerLink="registro">Registro</a>
+  </ul>
+  <!-- <ul>
+    <mat-icon
+      *ngIf="!auth.loginOn()"
+      aria-hidden="false"
+      aria-label="account_box"
+      >account_box</mat-icon
+    >
+    <a *ngIf="!auth.loginOn()" routerLink="login">Login</a>
+  </ul>
+  <ul>
+    <mat-icon
+      *ngIf="!auth.loginOn()"
+      aria-hidden="false"
+      aria-label="account_circle"
+      >account_circle</mat-icon
+    >
+    <a *ngIf="!auth.loginOn()" routerLink="registro">Registro</a>
+  </ul>
+  <ul>
+    <mat-icon *ngIf="auth.loginOn()" aria-hidden="false" aria-label="login"
+      >login</mat-icon
+    >
+    <a *ngIf="auth.loginOn()" mat-button (click)="auth.cerrarSesion()"
+      >Cerrar sesión</a
+    >
+  </ul> -->
+</mat-toolbar>
